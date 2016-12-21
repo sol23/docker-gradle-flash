@@ -8,13 +8,13 @@ MAINTAINER Carsten Stender <carsten.stender@gmail.com>
 ENV DISPLAY					:99
 
 ENV GRADLE_USER_HOME		/gradle
-ENV GRADLE_FOLDER 			/gradle
+ENV GRADLE_FOLDER			/gradle
 
-ENV AIR_SDK_VERSION       	22.0
+ENV AIR_SDK_VERSION			22.0
 ENV FLEX_SDK_NAME  			AirSdkCompiler-${AIR_SDK_VERSION}
-ENV FLASH_DIR              	/opt/flash
-ENV FLEX_HOME              	/opt/flash/sdk/AirSdkCompiler-${AIR_SDK_VERSION}
-ENV FLASH_PLAYER_LOCATION  	/usr/lib/flashplayer/flashplayerdebugger
+ENV FLASH_DIR				/opt/flash
+ENV FLEX_HOME				/opt/flash/sdk/AirSdkCompiler-${AIR_SDK_VERSION}
+ENV FLASH_PLAYER_LOCATION	/usr/lib/flashplayer/flashplayerdebugger
 
 ##=======================
 ## Install dependencies
@@ -47,12 +47,12 @@ RUN mkdir -p $FLASH_DIR &&\
 	curl https://fpdownload.macromedia.com/pub/labs/flashruntimes/flashplayer/linux64/flash_player_sa_linux_debug.x86_64.tar.gz \
 		--progress-bar \
 		-o flash_player.tar.gz &&\
-   	tar xzf flash_player.tar.gz &&\
+	tar xzf flash_player.tar.gz &&\
 	rm flash_player.tar.gz &&\
-    mkdir -p /usr/lib/flashplayer &&\
+	mkdir -p /usr/lib/flashplayer &&\
 	mv flashplayerdebugger /usr/lib/flashplayer/flashplayerdebugger &&\
-    rm -rf /usr/bin/flashplayerdebugger &&\
-    ln -s /usr/lib/flashplayer/flashplayerdebugger /usr/bin/gflashplayer
+	rm -rf /usr/bin/flashplayerdebugger &&\
+	ln -s /usr/lib/flashplayer/flashplayerdebugger /usr/bin/gflashplayer
 
 # ##==========================
 # ## Install AirSDK
